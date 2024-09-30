@@ -1,21 +1,27 @@
 package org.example.View;
 
 import org.example.Model.*;
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 
+/**
+ * Klasse für die View des WortTrainers
+ */
+
 public class WortTrainerView {
     public static void main(String[] args) {
         WortTrainer wortTrainer = loadWortTrainer();
+        boolean lastWasCorrect = true;
 
         while (true) {
             WortPaar currentWort = wortTrainer.getCurrentWort();
             String message = "Statistik: " + wortTrainer.getStatistik().getProzentRichtig() + "% - (" + wortTrainer.getStatistik().getRichtigeAntworten() + "/"+ wortTrainer.getStatistik().getVersuche() + ")\n";
             message += "Aktuelles Bild:\n";
             message += "Was siehst du?";
+            if (!lastWasCorrect) {
+                message += "\n \nDas letzte Wort war falsch. Versuche es nochmal!";
+            }
 
             try {
                 URL url = new URL(currentWort.getWortURL());
@@ -43,7 +49,10 @@ public class WortTrainerView {
                 boolean isCorrect = wortTrainer.check(userInput);
                 JOptionPane.showMessageDialog(null, isCorrect ? "Richtig!" : "Falsch!", "Ergebnis", JOptionPane.INFORMATION_MESSAGE);
                 if (isCorrect) {
+                    lastWasCorrect = true;
                     wortTrainer.getRandomWort();
+                } else {
+                    lastWasCorrect = false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
