@@ -3,14 +3,19 @@ package org.example;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Klasse für ein WortPaar
+ * Ein WortPaar besteht aus einem Wort und einer URL
+ */
+
 public class WortPaar {
     private String wortWert;
     private String wortURL;
 
     public WortPaar(String wortWert, String wortURL) {
         this.wortWert = wortWert;
-        checkURL();
         this.wortURL = wortURL;
+        checkURL();
     }
 
     public String getWortWert() {
@@ -30,6 +35,10 @@ public class WortPaar {
         this.wortURL = wortURL;
     }
 
+    /**
+     * Überprüft ob die URL korrekt ist
+     * @throws IllegalArgumentException wenn die URL null ist oder das Format nicht stimmt
+     */
     public void checkURL() {
         if (this.wortURL == null) {
             throw new IllegalArgumentException("URL hat Wert null");

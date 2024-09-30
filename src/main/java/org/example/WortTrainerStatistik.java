@@ -1,5 +1,9 @@
 package org.example;
 
+/**
+ * Klasse für die Statistik des WortTrainers
+ */
+
 public class WortTrainerStatistik {
     private int versuche;
     private int richtigeAntworten;

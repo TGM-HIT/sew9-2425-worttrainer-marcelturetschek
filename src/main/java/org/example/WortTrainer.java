@@ -1,5 +1,10 @@
 package org.example;
 
+/**
+ * Klasse für den WortTrainer
+ * Der WortTrainer verwaltet die WortListe und die Statistik
+ */
+
 public class WortTrainer {
     private WortPaar currentWort;
     private WortListe wortListe;

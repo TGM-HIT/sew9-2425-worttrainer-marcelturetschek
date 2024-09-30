@@ -2,6 +2,10 @@ package org.example;
 
 import java.util.ArrayList;
 
+/**
+ * Klasse für eine Liste von WortPaaren
+ */
+
 public class WortListe {
     private ArrayList<WortPaar> wortListe = new ArrayList<>();
 
