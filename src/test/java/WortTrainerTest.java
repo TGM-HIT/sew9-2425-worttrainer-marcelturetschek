@@ -1,5 +1,7 @@
-package org.example;
-
+import org.example.Model.WortListe;
+import org.example.Model.WortPaar;
+import org.example.Model.WortTrainer;
+import org.example.Model.WortTrainerStatistik;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Model;
 
 /**
  * Klasse für den WortTrainer
@@ -17,7 +17,8 @@ public class WortTrainer {
     }
 
     public WortPaar getRandomWort() {
-        return this.wortListe.getWortListe().get((int) (Math.random() * this.wortListe.getWortListe().size()));
+        currentWort = this.wortListe.getWortListe().get((int) (Math.random() * this.wortListe.getWortListe().size()));
+        return currentWort;
     }
 
     public boolean check(String userInput) {
@@ -29,5 +30,13 @@ public class WortTrainer {
             this.statistik.addVersuch(false);
             return false;
         }
+    }
+
+    public WortPaar getCurrentWort() {
+        return currentWort;
+    }
+
+    public WortTrainerStatistik getStatistik() {
+        return statistik;
     }
 }

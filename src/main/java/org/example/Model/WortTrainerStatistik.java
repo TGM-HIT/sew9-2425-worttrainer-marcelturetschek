@@ -1,4 +1,6 @@
-package org.example;
+package org.example.Model;
+
+import java.text.DecimalFormat;
 
 /**
  * Klasse für die Statistik des WortTrainers
@@ -28,7 +30,11 @@ public class WortTrainerStatistik {
         return richtigeAntworten;
     }
 
-    public double getProzentRichtig() {
-        return (double) this.richtigeAntworten / this.versuche * 100;
+    public String getProzentRichtig() {
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        if (this.versuche == 0) {
+            return "0.00";
+        }
+        return numberFormat.format((double) this.richtigeAntworten / this.versuche * 100);
     }
 }
