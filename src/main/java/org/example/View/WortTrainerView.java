@@ -19,7 +19,7 @@ public class WortTrainerView {
         WortTrainer wortTrainer = loadWortTrainer();
         boolean lastWasCorrect = true;
 
-        while (true) {
+        for (int i = 0; i < 5; i++) {
             WortPaar currentWort = wortTrainer.getCurrentWort();
             String message = "Statistik: " + wortTrainer.getStatistik().getProzentRichtig() + "% - (" + wortTrainer.getStatistik().getRichtigeAntworten() + "/"+ wortTrainer.getStatistik().getVersuche() + ")\n";
             message += "Aktuelles Bild:\n";
@@ -63,6 +63,7 @@ public class WortTrainerView {
                 e.printStackTrace();
             }
         }
+        JOptionPane.showMessageDialog(null, "Quiz abgeschlossen. \nStatistik: \n" + wortTrainer.getStatistik().getProzentRichtig() + "% - (" + wortTrainer.getStatistik().getRichtigeAntworten() + "/"+ wortTrainer.getStatistik().getVersuche() + ")");
         persistWortTrainer(wortTrainer);
     }
 
