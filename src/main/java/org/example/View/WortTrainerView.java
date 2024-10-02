@@ -1,8 +1,13 @@
 package org.example.View;
 
 import org.example.Model.*;
+import org.example.WortTrainerPersistenz;
+import org.example.WortTrainerPersistenzJSON;
+import org.json.JSONObject;
+
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.net.URL;
 
 /**
@@ -59,15 +64,22 @@ public class WortTrainerView {
             }
         }
         persistWortTrainer(wortTrainer);
-        JOptionPane.getRootFrame().dispose();
     }
 
     private static WortTrainer loadWortTrainer() {
-        WortListe wl = new WortListe("Hund", "https://as1.ftcdn.net/v2/jpg/02/58/18/06/1000_F_258180661_y40ddZDL7IxNK5LuPqXZTPOcbSv08t4x.jpg");
-        wl.addWortPaar(new WortPaar("Katze", "https://as1.ftcdn.net/v2/jpg/01/19/18/08/1000_F_119180881_GtjSIX6CJLMCsoSqzdE6vFBXNVbQmfSs.jpg"));
-        return new WortTrainer(wl);
+        File f = new File("WortTrainer.json");
+        if (f.exists() && !f.isDirectory()) {
+            WortTrainerPersistenz wtPers = new WortTrainerPersistenzJSON();
+            return wtPers.loadWortTrainer();
+        } else {
+            WortListe wl = new WortListe("Hund", "https://as1.ftcdn.net/v2/jpg/02/58/18/06/1000_F_258180661_y40ddZDL7IxNK5LuPqXZTPOcbSv08t4x.jpg");
+            wl.addWortPaar(new WortPaar("Katze", "https://as1.ftcdn.net/v2/jpg/01/19/18/08/1000_F_119180881_GtjSIX6CJLMCsoSqzdE6vFBXNVbQmfSs.jpg"));
+            return new WortTrainer(wl);
+        }
     }
 
     private static void persistWortTrainer(WortTrainer wortTrainer) {
+        WortTrainerPersistenz wtPers = new WortTrainerPersistenzJSON();
+        wtPers.saveWortTrainer(wortTrainer);
     }
 }

@@ -39,4 +39,8 @@ public class WortTrainer {
     public WortTrainerStatistik getStatistik() {
         return statistik;
     }
+
+    public WortListe getWortListe() {
+        return wortListe;
+    }
 }

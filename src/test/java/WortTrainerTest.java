@@ -37,7 +37,7 @@ public class WortTrainerTest {
         WortTrainerStatistik statistik = new WortTrainerStatistik();
         statistik.addVersuch(true);
         statistik.addVersuch(false);
-        assertEquals(50.0, statistik.getProzentRichtig());
+        assertEquals("50,00", statistik.getProzentRichtig());
     }
 
 }

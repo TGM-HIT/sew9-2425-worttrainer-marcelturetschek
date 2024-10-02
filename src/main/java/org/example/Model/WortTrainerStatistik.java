@@ -26,6 +26,14 @@ public class WortTrainerStatistik {
         return versuche;
     }
 
+    public void setVersuche(int versuche) {
+        this.versuche = versuche;
+    }
+
+    public void setRichtigeAntworten(int richtigeAntworten) {
+        this.richtigeAntworten = richtigeAntworten;
+    }
+
     public int getRichtigeAntworten() {
         return richtigeAntworten;
     }
