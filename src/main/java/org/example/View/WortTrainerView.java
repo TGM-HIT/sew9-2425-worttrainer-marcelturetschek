@@ -12,6 +12,7 @@ import java.net.URL;
 
 /**
  * Klasse für die View des WortTrainers
+ * mthaler
  */
 
 public class WortTrainerView {
